@@ -62,6 +62,10 @@ dogs = ['roger','syd',1,'True']
 print('roger' in dogs)
 print('sid' in dogs)
 
+dogs[2]='kaal'
+print(dogs[2])
+
+
 
 names = ('roger','syd')
 len(names)
