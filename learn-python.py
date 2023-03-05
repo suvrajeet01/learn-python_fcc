@@ -1,3 +1,6 @@
+from functools import reduce
+import argparse
+import sys
 from enum import Enum
 #import mod
 #from mod import bark
@@ -58,12 +61,57 @@ age = input('Whats ur age? ')
 
 
 
-dogs = ['roger','syd',1,'True']
+dogs = ['roger','syd',1,'True','quincy',7]
 print('roger' in dogs)
 print('sid' in dogs)
 
 dogs[2]='kaal'
+print(dogs[-1])
 print(dogs[2])
+print(dogs[2:4])
+print(dogs[2:])
+print(dogs[:])
+print(dogs[:3])
+print(len(dogs))
+dogs.append('judy')
+dogs.extend('judy',5)
+dogs += ['judy',5]
+dogs.remove('quincy')
+print(dogs)
+print(dogs.pop())
+print(dogs)
+
+items = ['roger',1,'syd',True, 'quincy',7]
+items.insert(2, 'test')
+print(items)
+
+
+items[1:1] = ['test','test2']
+print(items)
+
+
+
+
+items = ['roger','syd', 'quincy','Syd']
+items.sort(items)
+print(items)
+items = ['roger','syd', 'quincy']
+items.sort(items)
+print(items)
+items = ['roger','syd', 'quincy','Syd']
+items.sort(key=str.lower)
+
+itemscopy = items[:]
+print(itemscopy)
+
+
+print(sorted(items), key=str.lower)
+print(items)
+
+
+
+
+
 
 
 
@@ -267,3 +315,124 @@ c2.walk()
 # bark()
 # mod.bark()
 bark()
+
+
+print('hello')
+
+print(sys.argvw)
+name=sys.argv[1]
+print('hello'+names)
+
+
+
+
+
+
+
+
+parser = argparse.ArgumentParser(description='this program prints name of dogs')
+parser.add_argument('-c','--color',metavar='color',required=True,choioces= {'red','yellow'},help='the color to search for')
+args = parser.parse_args()
+print(ar.color)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+lambda num : num + 2
+lambda a,b : a*b
+multiply = lambda a,b : a*b
+
+print(multiply(2,4))
+
+
+
+
+
+
+numbers=[1,2,3]
+
+def double(a):
+    return a*2
+result = map(double, numbers)
+print(result)
+print(list(result))
+
+
+double = lambda a : a*2
+result = map(double, numbers)
+print(result)
+print(list(result))
+
+
+
+result = map(lambda a:a*2, numbers)
+print(result)
+print(list(result))
+
+
+numbers = [1,2,3,6,4,5]
+def is_even:
+    return n%2 == 0
+
+result = filter(is_even, numbers)
+print(result)
+print(list(result))
+
+
+
+
+
+numbers = [1,2,3,5,4,6]
+
+result = filter(lambda n : n%2 ==0, numbers)
+print(result)
+print(list(result))
+
+
+expenses = [
+    ('Dinner',80),
+    ('car repair', 120)
+]
+
+sum = 0
+for expense in expenses:
+    sum += expense[1]
+
+print(sum)
+
+
+
+
+
+expenses = [
+    ('Dinner',80),
+    ('car repair', 120)
+]
+
+sum = reduce(lambda a,b: a[1]+b[1], expenses)
+
+print(sum)
+
+
+
+
+
