@@ -1,11 +1,11 @@
-from functools import reduce
 import argparse
-import sys
-from enum import Enum
+#import sys
+# from enum import Enum
 #import mod
 #from mod import bark
 #from lib import mod
 from lib.mod import bark
+from functools import reduce
 
 
 name = 'langs'
@@ -39,20 +39,20 @@ d=all([a,b])
 
 
 
-class State(Enum):
-    inactive = 0
-    active = 1
+# class State(Enum):
+#     inactive = 0
+#     active = 1
 
-print(State.active)
-print(State.active.value)
-print(State.inactive.value)
+# print(State.active)
+# print(State.active.value)
+# print(State.inactive.value)
 
-print(State(1))
-print(State['active'])
-print(State['active'].value)
+# print(State(1))
+# print(State['active'])
+# print(State['active'].value)
 
-print(list(State))
-print(len(State))
+# print(list(State))
+# print(len(State))
 
 
 
@@ -74,7 +74,7 @@ print(dogs[:])
 print(dogs[:3])
 print(len(dogs))
 dogs.append('judy')
-dogs.extend('judy',5)
+dogs.extend(['judy',5])
 dogs += ['judy',5]
 dogs.remove('quincy')
 print(dogs)
@@ -93,10 +93,10 @@ print(items)
 
 
 items = ['roger','syd', 'quincy','Syd']
-items.sort(items)
+items.sort()
 print(items)
 items = ['roger','syd', 'quincy']
-items.sort(items)
+items.sort()
 print(items)
 items = ['roger','syd', 'quincy','Syd']
 items.sort(key=str.lower)
@@ -105,8 +105,8 @@ itemscopy = items[:]
 print(itemscopy)
 
 
-print(sorted(items), key=str.lower)
-print(items)
+# print(sorted(items), key=str.lower)
+# print(items)
 
 
 
@@ -160,12 +160,12 @@ dict1Copy=dict1.copy()
 
 set1={'roger','syd','roger'}
 set2={'roger'}
-intersect = set1 & set2
-union = set1 | set2
-diff = set1 - set2
-superset = set1 >set2
-subset = set1 < set2
-print(intersect,union,diff,superset,subset)
+# #intersect = set1 & set2
+# union = set1 | set2
+# diff = set1 - set2
+# superset = set1 >set2
+# subset = set1 < set2
+# print(intersect,union,diff,superset,subset)
 
 print(list(set1))
 
@@ -317,23 +317,23 @@ c2.walk()
 bark()
 
 
-print('hello')
+# print('hello')
 
-print(sys.argvw)
-name=sys.argv[1]
-print('hello'+names)
-
-
+# print(sys.argv)
+# name=sys.argv[1]
+# print('hello'+names)
 
 
 
 
 
 
-parser = argparse.ArgumentParser(description='this program prints name of dogs')
-parser.add_argument('-c','--color',metavar='color',required=True,choioces= {'red','yellow'},help='the color to search for')
-args = parser.parse_args()
-print(ar.color)
+
+
+# parser = argparse.ArgumentParser(description='this program prints name of dogs')
+# parser.add_argument('-c','--color',metavar='color',required=True,choioces= {'red','yellow'},help='the color to search for')
+# args = parser.parse_args()
+# print(ar.color)
 
 
 
@@ -390,7 +390,7 @@ print(list(result))
 
 
 numbers = [1,2,3,6,4,5]
-def is_even:
+def is_even(n):
     return n%2 == 0
 
 result = filter(is_even, numbers)
@@ -436,3 +436,152 @@ print(sum)
 
 
 
+def factorial(n):
+    if n == 1 : return 1
+    return n*factorial(n-1)
+
+print(factorial(3))
+print(factorial(4))
+print(factorial(5))
+
+
+
+
+
+
+
+
+
+def logtime(func):
+    def wrapper():
+        print('before')
+        val=func()
+        print('after')
+        return val
+    return wrapper
+
+@logtime
+def hello():
+    print('hello')
+
+hello()
+
+
+
+
+
+
+
+
+"""
+multiple
+line
+docstring
+"""
+
+
+
+
+""" single-line-docstring"""
+
+
+
+
+
+
+def increment(n):
+    return n+1
+    
+###########
+# with annotations
+# def increment(n :int) --> int :
+#     return n+1
+
+# count: int = 0
+###########
+
+
+
+
+
+
+
+
+
+
+
+
+try:
+    result = 2/0
+except ZeroDivisionError:
+        print("can't divide by zero" )
+finally:
+        result = 1
+
+print(result)
+
+
+
+
+
+try:
+    raise Exception('error!')
+except Exception as error:
+    print(error)
+
+
+class DogNtFndException(Exception):
+    print('inside')
+    pass
+
+try:
+    raise DogNtFndException()
+except DogNtFndException:
+    print('Dog not found!')
+
+
+
+
+
+
+
+
+
+
+
+# filename=/pythn
+# try:
+#     file=open(filename, 'r')
+#     content = file.read()
+#     print(content)
+# finally:
+#     file.close()
+
+
+# with open(filename, 'r') as file:
+#     content = file.read()
+#     print(content)
+
+
+
+
+
+
+
+
+
+
+
+numbers=[1,2,3,4,5]
+numbers_power_2=[n**2 for n in numbers]
+print(numbers_power_2)
+
+#OR
+
+# numbers_power_2 = []
+# for n in numbers:
+#     numbers_power_2.append(n**2)
+
+#OR
+
+# numbers_power_2 = list(map(lambda n:n**2, numbers))
