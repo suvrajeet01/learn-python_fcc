@@ -585,3 +585,47 @@ print(numbers_power_2)
 #OR
 
 # numbers_power_2 = list(map(lambda n:n**2, numbers))
+
+
+
+
+
+
+
+
+
+class dog:
+    def eat(self):
+        print('eating dog food')
+
+class cat:
+    def eat(self):
+        print('eating cat food')
+
+animal1=dog()
+animal2=cat()
+
+animal1.eat()
+animal2.eat()
+
+
+
+
+
+
+class Dog:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+
+    def __gt__(self,other):
+        return True if self.age>other.age else False
+
+roger=Dog(roger, 8)
+syd=Dog(syd, 7)
+
+print(roger>syd)
+
+roger=Dog(roger, 8)
+syd=Dog(syd, 7)
+print(roger>syd)
